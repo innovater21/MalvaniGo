@@ -27,7 +27,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.manager.requestWhenInUseAuthorization()
         }
     }
-
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            //Add region to load
+            let region = MKCoordinateRegionMakeWithDistance(self.manager.location!.coordinate, 400, 400)
+            self.mapView.setRegion(region, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
