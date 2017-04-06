@@ -8,9 +8,16 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, CLLocationManagerDelegate {
-
+class ViewController: UIViewController, CLLocationManagerDelegate ,MKMapViewDelegate{
+    var pokemon : [Pokemon] = []
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBAction func relocateUserOnPress(_ sender: AnyObject) {
+        let region = MKCoordinateRegionMakeWithDistance(self.manager.location!.coordinate, 400, 400)
+        self.mapView.setRegion(region, animated: true)
+    }
+    var update = 0
     //initializing manager
     var manager = CLLocationManager()
     
@@ -18,20 +25,66 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.manager.delegate = self
+        self.mapView.delegate = self
+        self.manager.startUpdatingLocation()
+        
+        pokemon = bringAllPokemon() // bring all pokemonn from coredata
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
-                self.mapView.showsUserLocation = true
-                self.manager.startUpdatingLocation()
+                self.mapView.showsUserLocation = true //shows user location
+                self.manager.startUpdatingLocation()  //Updates the location
+            
+                Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block:
+                    {
+                    (timer) in
+                        if let coordinate = self.manager.location?.coordinate {
+                            let randomPokemon = Int(arc4random_uniform(UInt32(self.pokemon.count)))
+                            
+                            let pokemon = self.pokemon[randomPokemon]
+                            
+                            let annotation = pokemonAnnotation(coordinate: coordinate, pokemon: pokemon)
+                            annotation.coordinate = coordinate
+                            annotation.coordinate.latitude += (Double(arc4random_uniform(1000))
+                                - 500) / 300000.0
+                            annotation.coordinate.longitude += (Double(arc4random_uniform(1000))
+                                - 500) / 300000.0
+                            self.mapView.addAnnotation(annotation)
+                            
+                        }}
+            )
         }
         else{
             self.manager.requestWhenInUseAuthorization()
         }
     }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        if annotation is MKUserLocation {
+            annotationView.image = #imageLiteral(resourceName: "player")
+        }
+        else{
+            let pokemon = (annotation as! pokemonAnnotation).pokemon
+            annotationView.image = UIImage(named: pokemon.imageFileName!)
+        }
+        var newFrame = annotationView.frame
+        newFrame.size.width = 50
+        newFrame.size.height = 50
+        annotationView.frame = newFrame
+        
+        return annotationView
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            //Add region to load
+        if update < 4{  //To stop location update every second
+            //Add region to load in map
             let region = MKCoordinateRegionMakeWithDistance(self.manager.location!.coordinate, 400, 400)
             self.mapView.setRegion(region, animated: true)
+            update+=1
+        }
+        else{
+            self.manager.startUpdatingLocation()
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

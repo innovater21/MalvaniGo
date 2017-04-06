@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841EBEAB1E963ED800E951D8 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EBEAA1E963ED800E951D8 /* PokedexViewController.swift */; };
+		841EBEAD1E96459000E951D8 /* coreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EBEAC1E96459000E951D8 /* coreDataHelper.swift */; };
+		841EBEAF1E965C8000E951D8 /* pokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EBEAE1E965C8000E951D8 /* pokemonAnnotation.swift */; };
 		8436A63D1E96009000D2810E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A63C1E96009000D2810E /* AppDelegate.swift */; };
 		8436A63F1E96009000D2810E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436A63E1E96009000D2810E /* ViewController.swift */; };
 		8436A6421E96009000D2810E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8436A6401E96009000D2810E /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841EBEAA1E963ED800E951D8 /* PokedexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
+		841EBEAC1E96459000E951D8 /* coreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataHelper.swift; sourceTree = "<group>"; };
+		841EBEAE1E965C8000E951D8 /* pokemonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pokemonAnnotation.swift; sourceTree = "<group>"; };
 		8436A6391E96009000D2810E /* MalvaniGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalvaniGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436A63C1E96009000D2810E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8436A63E1E96009000D2810E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 				8436A6481E96009000D2810E /* LaunchScreen.storyboard */,
 				8436A64B1E96009000D2810E /* Info.plist */,
 				8436A6431E96009000D2810E /* MalvaniGo.xcdatamodeld */,
+				841EBEAA1E963ED800E951D8 /* PokedexViewController.swift */,
+				841EBEAC1E96459000E951D8 /* coreDataHelper.swift */,
+				841EBEAE1E965C8000E951D8 /* pokemonAnnotation.swift */,
 			);
 			path = MalvaniGo;
 			sourceTree = "<group>";
@@ -151,9 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841EBEAF1E965C8000E951D8 /* pokemonAnnotation.swift in Sources */,
 				8436A63F1E96009000D2810E /* ViewController.swift in Sources */,
+				841EBEAB1E963ED800E951D8 /* PokedexViewController.swift in Sources */,
 				8436A63D1E96009000D2810E /* AppDelegate.swift in Sources */,
 				8436A6451E96009000D2810E /* MalvaniGo.xcdatamodeld in Sources */,
+				841EBEAD1E96459000E951D8 /* coreDataHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +325,7 @@
 				8436A6501E96009000D2810E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
