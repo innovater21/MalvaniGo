@@ -28,8 +28,12 @@ class BattleViewController: UIViewController {
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
         // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(returnToMapViewController), name: NSNotification.Name("StopBattle"), object: nil)
     }
-
+    func returnToMapViewController(){
+        self.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

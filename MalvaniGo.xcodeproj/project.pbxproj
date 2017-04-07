@@ -72,16 +72,16 @@
 			children = (
 				8436A63C1E96009000D2810E /* AppDelegate.swift */,
 				8436A63E1E96009000D2810E /* ViewController.swift */,
+				841EBEAA1E963ED800E951D8 /* PokedexViewController.swift */,
+				841EBEAC1E96459000E951D8 /* coreDataHelper.swift */,
+				841EBEAE1E965C8000E951D8 /* pokemonAnnotation.swift */,
+				84826E9E1E97655500C03504 /* BattleViewController.swift */,
+				84826E9C1E97653300C03504 /* battleScene.swift */,
 				8436A6401E96009000D2810E /* Main.storyboard */,
 				8436A6461E96009000D2810E /* Assets.xcassets */,
 				8436A6481E96009000D2810E /* LaunchScreen.storyboard */,
 				8436A64B1E96009000D2810E /* Info.plist */,
 				8436A6431E96009000D2810E /* MalvaniGo.xcdatamodeld */,
-				841EBEAA1E963ED800E951D8 /* PokedexViewController.swift */,
-				841EBEAC1E96459000E951D8 /* coreDataHelper.swift */,
-				841EBEAE1E965C8000E951D8 /* pokemonAnnotation.swift */,
-				84826E9C1E97653300C03504 /* battleScene.swift */,
-				84826E9E1E97655500C03504 /* BattleViewController.swift */,
 			);
 			path = MalvaniGo;
 			sourceTree = "<group>";
