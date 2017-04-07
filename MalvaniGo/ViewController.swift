@@ -86,6 +86,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate ,MKMapViewDele
             self.manager.startUpdatingLocation()
         }
     }
+    
+    //Go to animation on click
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation!, animated: true)
+        
+        if view.annotation! is MKUserLocation {
+            return
+        }
+        //Takes to the annoatations vicinity
+        let region = MKCoordinateRegionMakeWithDistance((view.annotation?.coordinate)!, 150,150)
+        self.mapView.setRegion(region, animated: true)
+        
+        //
+        if let coordinate = self.manager.location?.coordinate {
+            if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coordinate)){
+                print("in range")
+            }
+            else{
+                print("out of range")
+            }
+        }
+    }
+    
+    //TO hide the status bar
+    
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

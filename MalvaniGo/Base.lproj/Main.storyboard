@@ -19,10 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dS2-0x-V2F">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dS2-0x-V2F"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaN-iD-wAx">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bbW-Ig-5iG"/>
@@ -43,13 +40,26 @@
                                     <segue destination="jrx-l5-Pbq" kind="showDetail" id="brE-ke-PJ4"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pokemonlogo" translatesAutoresizingMaskIntoConstraints="NO" id="efp-lc-tjV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="0cA-Y7-PeF"/>
+                                    <constraint firstAttribute="width" constant="160" id="toC-O1-QUm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dS2-0x-V2F" secondAttribute="bottom" id="1Ni-ar-AWs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KaN-iD-wAx" secondAttribute="bottom" constant="10" id="2GH-Ck-84v"/>
+                            <constraint firstItem="dS2-0x-V2F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ARI-rq-nAs"/>
+                            <constraint firstItem="efp-lc-tjV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="CDu-UR-MYg"/>
+                            <constraint firstItem="efp-lc-tjV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="91" id="DtA-jN-xRj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KaN-iD-wAx" secondAttribute="trailing" constant="10" id="GCc-eX-49r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="efp-lc-tjV" secondAttribute="trailing" constant="92" id="IIi-YD-4YR"/>
                             <constraint firstItem="MZR-UE-TIF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Oso-AX-Vwj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MZR-UE-TIF" secondAttribute="bottom" constant="10" id="Pyw-Fv-7Y1"/>
+                            <constraint firstAttribute="trailing" secondItem="dS2-0x-V2F" secondAttribute="trailing" id="Zy2-Ha-gFD"/>
+                            <constraint firstItem="dS2-0x-V2F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mhw-Av-OI5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -114,6 +124,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Pokemonlogo" width="1023" height="640"/>
         <image name="backpack" width="512" height="512"/>
         <image name="compass" width="512" height="512"/>
         <image name="map" width="512" height="512"/>
