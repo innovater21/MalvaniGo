@@ -7,12 +7,26 @@
 //
 
 import UIKit
-
+import SpriteKit
 class BattleViewController: UIViewController {
-
+    
+    var pokemon : Pokemon!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let scene = battleScene(size: CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height))
+        
+        self.view = SKView() //
+        let skView = self.view as! SKView
+        skView.showsFPS = false
+        skView.showsNodeCount = false
+        skView.ignoresSiblingOrder = false
+        
+        
+        scene.pokemon = pokemon
+        scene.scaleMode = .aspectFit
+        skView.presentScene(scene)
         // Do any additional setup after loading the view.
     }
 
